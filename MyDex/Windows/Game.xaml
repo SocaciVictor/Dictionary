@@ -1,0 +1,47 @@
+﻿<Window x:Class="MyDex.Game"
+        Closing="Window_Closing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyDex"
+        mc:Ignorable="d"
+        Title="Game" Height="650" Width="1000" WindowStartupLocation="CenterScreen">
+    <Canvas Margin="0,0,-101,-165">
+        <Canvas.Background>
+            <ImageBrush ImageSource="/Images/gameBackground.jpg" Stretch="Fill"/>
+        </Canvas.Background>
+        <TextBlock Text="Trivia Game" 
+               FontSize="48" 
+               FontWeight="Bold" 
+               Foreground="Red" 
+               HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="348"/>
+        <Border x:Name="QuestionPanel" Visibility="Visible" CornerRadius="20" BorderBrush="Black" BorderThickness="1" Background="Transparent"
+                Canvas.Left="180" Canvas.Top="150" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <StackPanel Width="600" Height="360">
+                <TextBlock x:Name="AnswerNumber" Text="Question 1" FontSize="20" Width="109" Height="40"
+                           HorizontalAlignment="Center" Margin="0,15,0,0"/>
+                <TextBlock x:Name="QuesText" Text="What is the word in the picture ?" FontSize="20"
+                           HorizontalAlignment="Center" Margin="0,10,0,0"/>
+
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="200" >
+                    <Border x:Name="ImageBorder" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Margin="0,5,0,0" Visibility="Collapsed">
+                        <Image x:Name="ImageBox" Source="/Images/word.jpg"  MaxWidth="300" MaxHeight="200"/>
+                    </Border>
+                    <TextBlock x:Name="DescriptionText"  FontSize="15" Margin="0,10,0,0" Width="350" Visibility="Collapsed"
+                TextWrapping="Wrap" TextAlignment="Justify" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <TextBlock Text="Your ansewer" FontSize="15"
+            FontFamily="/assets/#Mochiy Pop One" HorizontalAlignment="Center" Margin="0,20,0,5"/>
+                <DockPanel>
+                    <Button BorderThickness="0.3" Content="Next" DockPanel.Dock="Right" Width="68" RenderTransformOrigin="0.383,0.722" Click="Button_Click"/>
+                    <Button BorderThickness="0.3" Content="Prev" DockPanel.Dock="Left" Width="76" Click="Button_Click_1"/>
+                    <TextBox x:Name="my_Answer" BorderBrush="Black"  FontSize="15"
+            FontFamily="/assets/#Mochiy Pop One" VerticalContentAlignment="Center" DockPanel.Dock="Right" Width="142" />
+
+                </DockPanel>
+            </StackPanel>
+        </Border>
+    </Canvas>
+</Window>
